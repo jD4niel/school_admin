@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="read_student_ir_rule" model="ir.rule">
+            <field name="model_id" ref="model_student"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="name">Teacher view students</field>
+            <field name="groups" eval="[(4, ref('school_admin.teacher_group'))]"/>
+            <field name="perm_unlink">False</field>
+            <field name="perm_write">False</field>
+            <field name="perm_read">True</field>
+            <field name="perm_create">False</field>
+        </record>
+        
+        <record id="read_student_by_tutor_ir_rule" model="ir.rule">
+            <field name="model_id" ref="model_student"/>
+            <field name="domain_force">[(tutor_id,'=',user.id)]</field>
+            <field name="name">Teacher view students</field>
+            <field name="groups" eval="[(4, ref('school_admin.tutor_group'))]"/>
+            <field name="perm_unlink">False</field>
+            <field name="perm_write">False</field>
+            <field name="perm_read">True</field>
+            <field name="perm_create">False</field>
+        </record>
+    </data>
+</odoo>

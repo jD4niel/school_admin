@@ -1,5 +1,5 @@
 <odoo>
-    <data>
+    <data noupdate="1">
 
           <record id="signature_1" model="signature">
             <field name="name">Math</field>

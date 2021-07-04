@@ -29,7 +29,6 @@
                             <page string="School Grades" name="school_grades">
                                 <field name="grades_ids">
                                     <tree>
-                                        <field name="name"/>
                                         <field name="signature_id"/>
                                         <field name="teacher_id"/>
                                         <field name="grade" avg="AVG"/>
@@ -38,7 +37,6 @@
                                         <sheet>
                                             <group>
                                                 <group>
-                                                    <field name="name"/>
                                                     <field name="grade"/>
                                                 </group>
                                                 <group>
@@ -99,7 +97,7 @@
         <menuitem name="Teachers" id="main_menu_teachers" parent="school_admin.main_menu_school" sequence="1" groups="base.group_user" action="action_view_teachers"/>
       
         <!-- parents -->
-        <record id="action_view_teachers" model="ir.actions.act_window">
+        <record id="action_view_parents" model="ir.actions.act_window">
             <field name="name">Parents</field>
             <field name="res_model">res.users</field>
             <field name="view_mode">tree,form</field>
