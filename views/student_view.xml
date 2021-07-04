@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <menuitem id="main_menu_school" name="School Manage" sequence="10" groups="base.group_user" web_icon="school_admin,static/description/icon.png"/>
+        <!-- students -->
+        <record model="ir.ui.view" id="student_form_view">
+            <field name="name">student_form_view</field>
+            <field name="model">student</field>
+            <field name="arch" type="xml">
+                <form string="Student">
+                    <sheet>
+                        <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image&quot;}"/>
+                        <div class="oe_title">
+                            <label for="number" class="oe_edit_only"/>
+                            <h1><field name="number"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="birthdate"/>
+                                <field name="tutor_id"/>
+                            </group>
+                            <group>
+                                <field name="grade"/>
+                                <field name="group"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="School Grades" name="school_grades">
+                                <field name="grades_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="signature_id"/>
+                                        <field name="teacher_id"/>
+                                        <field name="grade" avg="AVG"/>
+                                    </tree>
+                                    <form string="Grades">
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="name"/>
+                                                    <field name="grade"/>
+                                                </group>
+                                                <group>
+                                                    <field name="signature_id"/>
+                                                    <field name="teacher_id"/>
+                                                </group>
+                                            </group>
+                                            <group>
+                                                <field name="notes"/>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <record id="students_tree_view" model="ir.ui.view">
+            <field name="name">students_tree_view</field>
+            <field name="model">student</field>
+            <field name="arch" type="xml">
+                <tree string="Students">
+                    <field name="number"/>
+                    <field name="name"/>
+                    <field name="birthdate"/>
+                    <field name="tutor_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_view_students" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="res_model">student</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="students_tree_view"/>
+            <field name="target">current</field>
+        </record>
+        <menuitem name="Students" id="main_menu_students" parent="school_admin.main_menu_school" sequence="1" groups="base.group_user" action="action_view_students"/>
+
+        <!-- teachers -->
+        <record id="action_view_teachers" model="ir.actions.act_window">
+            <field name="name">Teacher</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="base.view_users_tree"/>
+            <field name="target">current</field>
+            <field name="context">{'search_default_no_share': 1}</field>
+            <field name="search_view_id" ref="base.view_users_search"/>
+        </record>
+        <menuitem name="Teachers" id="main_menu_teachers" parent="school_admin.main_menu_school" sequence="1" groups="base.group_user" action="action_view_teachers"/>
+      
+        <!-- parents -->
+        <record id="action_view_teachers" model="ir.actions.act_window">
+            <field name="name">Parents</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="base.view_users_tree"/>
+            <field name="target">current</field>
+            <field name="context">{'search_default_no_share': 1}</field>
+            <field name="search_view_id" ref="base.view_users_search"/>
+        </record>
+        <menuitem name="Parents" id="main_menu_parents" parent="school_admin.main_menu_school" sequence="1" groups="base.group_user" action="action_view_parents"/>
+    </data>
+</odoo>

@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+
+          <record id="signature_1" model="signature">
+            <field name="name">Math</field>
+          </record>
+
+          <record id="signature_2" model="signature">
+            <field name="name">English</field>
+          </record>
+
+          <record id="signature_3" model="signature">
+            <field name="name">History</field>
+          </record>
+
+          <record id="signature_4" model="signature">
+            <field name="name">Geography</field>
+          </record>
+
+          <record id="signature_5" model="signature">
+            <field name="name">Spanish</field>
+          </record>
+
+          <record id="signature_6" model="signature">
+            <field name="name">Ethics</field>
+          </record>
+
+          <record id="signature_7" model="signature">
+            <field name="name">Computing</field>
+          </record>
+
+          <record id="signature_8" model="signature">
+            <field name="name">Gymnastics</field>
+          </record>
+
+    </data>
+</odoo>
