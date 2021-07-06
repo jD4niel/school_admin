@@ -2,6 +2,7 @@
 from odoo import api, fields, models, _, SUPERUSER_ID
 from odoo.exceptions import UserError
 
+
 class Students(models.Model):
     _name = 'student'
     _inherit = ['portal.mixin', 'mail.thread', 'mail.activity.mixin']
@@ -9,30 +10,23 @@ class Students(models.Model):
     _order = 'number desc'
     _rec_name = 'number'
 
-
-    groups = [('a', 'A'),\
-             ('b', 'B'),\
-             ('c', 'C'),\
-             ('d', 'D'),\
-             ('e', 'E'),\
-             ('f', 'F'),\
-             ('g', 'G')]
     
-    name = fields.Char('Name')
+    name = fields.Char('Name', required=True)
     number = fields.Char('Number plates')
     address = fields.Text('Address')
     birthdate = fields.Datetime('Birthdate')
-    tutor_id = fields.Many2one('res.users',string='Tutor')
-    grade = fields.Selection([('1', '1'),('2', '2'),('3', '3')],'Grade')
-    group = fields.Selection(groups,'Group')
+    tutor_id = fields.Many2one('res.users',string='Tutor', required=True)
+    semester_id = fields.Many2one('school.semester',string='Semester', required=True)
+    group_id = fields.Many2one('school.group',string='Group', required=True)
     signature_ids = fields.Many2many('signature','students_signatures_ids','student_id','signature_id',string='Signatures')
     grades_ids = fields.Many2many('school.grades','student_school_grades_rel','student_id','school_grade_id',string='School Grades')
     image = fields.Binary('Image')
 
+
     @api.model
     def create(self, vals):
         res = super(Students, self).create(vals)
-        #res.number = self.env['ir.sequence'].next_by_code('student') if res else False
+        res.number = self.env['ir.sequence'].next_by_code('student') if res else False
         return res
 
 

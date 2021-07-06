@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <menuitem name="Semester" id="main_menu_semester" parent="school_admin.main_menu_school" sequence="1"/>
+        <!-- Semester -->
+        <record id="semester_tree_view" model="ir.ui.view">
+            <field name="name">semester_tree_view</field>
+            <field name="model">school.semester</field>
+            <field name="arch" type="xml">
+                <tree string="Semester" editable="bottom">
+                    <field name="semester"/>
+                    <field name="group_ids" widget="many2many_tags" domain="[('semester_id','=',False)]"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_view_semester" model="ir.actions.act_window">
+            <field name="name">Semester</field>
+            <field name="res_model">school.semester</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="semester_tree_view"/>
+            <field name="target">current</field>
+        </record>
+        
+        <menuitem name="Semester" id="submenu_semester"
+                  parent="main_menu_semester" sequence="1" action="action_view_semester"/>
+
+
+        <!-- Group -->
+        <record model="ir.ui.view" id="group_search_view">
+            <field name="name">group_search_view</field>
+            <field name="model">school.group</field>
+            <field name="arch" type="xml">
+                <search string="Groups">
+                    <field name="group"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Semester" name="semester_id" domain="[]" context="{'group_by': 'semester_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <record id="group_tree_view" model="ir.ui.view">
+            <field name="name">group_tree_view</field>
+            <field name="model">school.group</field>
+            <field name="arch" type="xml">
+                <tree string="Group" editable="bottom">
+                    <field name="group"/>
+                    <field name="semester_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_view_group" model="ir.actions.act_window">
+            <field name="name">Group</field>
+            <field name="res_model">school.group</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="group_tree_view"/>
+            <field name="target">current</field>
+             <field name="search_view_id" ref="group_search_view"/>
+            <field name="context">{'group_by':'semester_id'}</field>
+        </record>
+        
+        <menuitem name="Group" id="submenu_group"
+                  parent="main_menu_semester" sequence="2" action="action_view_group"/>
+
+
+    </data>
+</odoo>

@@ -21,14 +21,14 @@
                                 <field name="tutor_id"/>
                             </group>
                             <group>
-                                <field name="grade"/>
-                                <field name="group"/>
+                                <field name="semester_id" options="{'no_create': True, 'no_edit': True, 'no_open': True}"/>
+                                <field name="group_id" domain="[('semester_id','=',semester_id)]" options="{'no_create': True, 'no_edit': True, 'no_open': True}"/>
                             </group>
                         </group>
                         <notebook>
                             <page string="School Grades" name="school_grades">
-                                <field name="grades_ids">
-                                    <tree>
+                                <field name="grades_ids" widget="one2many" >
+                                    <tree editable="bottom">
                                         <field name="signature_id"/>
                                         <field name="teacher_id"/>
                                         <field name="grade" avg="AVG"/>
@@ -69,7 +69,9 @@
                 <tree string="Students">
                     <field name="number"/>
                     <field name="name"/>
-                    <field name="birthdate"/>
+                    <field name="semester_id"/>
+                    <field name="group_id"/>
+                    <field name="birthdate" optional="hide"/>
                     <field name="tutor_id"/>
                 </tree>
             </field>

@@ -1,0 +1,115 @@
+<odoo>
+    <data noupdate="1">
+
+          <!-- Semesters -->
+
+          <record id="school_semester_1" model="school.semester">
+            <field name="semester">1</field>
+          </record>
+
+          <record id="school_semester_2" model="school.semester">
+            <field name="semester">2</field>
+          </record>
+
+          <record id="school_semester_3" model="school.semester">
+            <field name="semester">3</field>
+          </record>
+
+          <record id="school_semester_4" model="school.semester">
+            <field name="semester">4</field>
+          </record>
+
+          <record id="school_semester_5" model="school.semester">
+            <field name="semester">5</field>
+          </record>
+
+          <record id="school_semester_6" model="school.semester">
+            <field name="semester">6</field>
+          </record>
+
+          <!-- Groups -->
+          <record id="group_1_1" model="school.group">
+            <field name="group">A</field>
+            <field name="semester_id" ref="school_semester_1"/>
+          </record>
+          <record id="group_1_2" model="school.group">
+            <field name="group">B</field>
+            <field name="semester_id" ref="school_semester_1"/>
+          </record>
+          <record id="group_1_3" model="school.group">
+            <field name="group">C</field>
+            <field name="semester_id" ref="school_semester_1"/>
+          </record>
+
+
+          <record id="group_2_1" model="school.group">
+            <field name="group">A</field>
+            <field name="semester_id" ref="school_semester_2"/>
+          </record>
+          <record id="group_2_2" model="school.group">
+            <field name="group">B</field>
+            <field name="semester_id" ref="school_semester_2"/>
+          </record>
+          <record id="group_2_3" model="school.group">
+            <field name="group">C</field>
+            <field name="semester_id" ref="school_semester_2"/>
+          </record>
+
+
+          <record id="group_3_1" model="school.group">
+            <field name="group">A</field>
+            <field name="semester_id" ref="school_semester_3"/>
+          </record>
+          <record id="group_3_2" model="school.group">
+            <field name="group">B</field>
+            <field name="semester_id" ref="school_semester_3"/>
+          </record>
+          <record id="group_3_3" model="school.group">
+            <field name="group">C</field>
+            <field name="semester_id" ref="school_semester_3"/>
+          </record>
+
+
+          <record id="group_4_1" model="school.group">
+            <field name="group">A</field>
+            <field name="semester_id" ref="school_semester_4"/>
+          </record>
+          <record id="group_4_2" model="school.group">
+            <field name="group">B</field>
+            <field name="semester_id" ref="school_semester_4"/>
+          </record>
+          <record id="group_4_3" model="school.group">
+            <field name="group">C</field>
+            <field name="semester_id" ref="school_semester_4"/>
+          </record>
+
+
+          <record id="group_5_1" model="school.group">
+            <field name="group">A</field>
+            <field name="semester_id" ref="school_semester_5"/>
+          </record>
+          <record id="group_5_2" model="school.group">
+            <field name="group">B</field>
+            <field name="semester_id" ref="school_semester_5"/>
+          </record>
+          <record id="group_5_3" model="school.group">
+            <field name="group">C</field>
+            <field name="semester_id" ref="school_semester_5"/>
+          </record>
+
+
+          <record id="group_6_1" model="school.group">
+            <field name="group">A</field>
+            <field name="semester_id" ref="school_semester_6"/>
+          </record>
+          <record id="group_6_2" model="school.group">
+            <field name="group">B</field>
+            <field name="semester_id" ref="school_semester_6"/>
+          </record>
+          <record id="group_6_3" model="school.group">
+            <field name="group">C</field>
+            <field name="semester_id" ref="school_semester_6"/>
+          </record>
+
+    </data>
+</odoo>

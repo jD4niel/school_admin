@@ -16,11 +16,13 @@
     'data': [
         'security/ir_groups.xml',
         'security/ir_rules.xml',
+        'data/semester_data.xml',
         'data/ir_sequence.xml',
         'data/signature_data.xml',
         'data/res.users.csv',
         'data/student.csv',
         'security/ir.model.access.csv',
+        'views/semester_view.xml',
         'views/student_view.xml',
         'views/signatures_view.xml',
     ],

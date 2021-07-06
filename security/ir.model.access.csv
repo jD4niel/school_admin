@@ -2,4 +2,6 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_student,student,model_student,,1,1,1,1
 access_signature,signature,model_signature,,1,1,1,1
 access_school_grades,school_grades,model_school_grades,,1,1,1,1
+access_school_semester,school_semester,model_school_semester,,1,1,1,1
+access_school_group,school_group,model_school_group,,1,1,1,1
 
