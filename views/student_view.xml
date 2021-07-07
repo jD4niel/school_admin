@@ -27,10 +27,11 @@
                         </group>
                         <notebook>
                             <page string="School Grades" name="school_grades">
-                                <field name="grades_ids" widget="one2many" >
+                                <field name="grades_ids" widget="one2many" context="{'default_student_id': active_id,}">
                                     <tree editable="bottom">
                                         <field name="signature_id"/>
                                         <field name="teacher_id"/>
+                                        <field name="student_id" invisible="1"/>
                                         <field name="grade" avg="AVG"/>
                                     </tree>
                                     <form string="Grades">

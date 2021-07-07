@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="student_paperformat" model="report.paperformat">
+            <field name="name">Custom Student Report</field>
+            <field name="default" eval="True" />
+            <field name="format">Letter</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">25</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">10</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">25</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="student_pdf" model="ir.actions.report">
+            <field name="name">Student Grade Report</field>
+            <field name="model">student</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">school_admin.student_doc</field>
+            <field name="report_file">school_admin.student_doc</field>
+            <field name="paperformat_id" ref="school_admin.student_paperformat"/>
+            <field name="binding_model_id" ref="school_admin.model_student"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+    </data>
+</odoo>

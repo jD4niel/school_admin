@@ -25,6 +25,8 @@
         'views/semester_view.xml',
         'views/student_view.xml',
         'views/signatures_view.xml',
+        'reports/student_report_format.xml',
+        'reports/student_report_view_pdf.xml',
     ],
     'demo': [
         #'demo/demo.xml',

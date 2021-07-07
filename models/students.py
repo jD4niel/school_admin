@@ -19,9 +19,16 @@ class Students(models.Model):
     semester_id = fields.Many2one('school.semester',string='Semester', required=True)
     group_id = fields.Many2one('school.group',string='Group', required=True)
     signature_ids = fields.Many2many('signature','students_signatures_ids','student_id','signature_id',string='Signatures')
-    grades_ids = fields.Many2many('school.grades','student_school_grades_rel','student_id','school_grade_id',string='School Grades')
+    grades_ids = fields.One2many('school.grades','student_id',string='School Grades')
     image = fields.Binary('Image')
 
+
+    @api.onchange('grades_ids')
+    def _onchange_grades_ids(self):
+        args = {}
+        args['domain'] = {'grades_ids': [('signature_id.id','not in',self.grades_ids.mapped('signature_id.id'))]}
+        print("\n args :  %s \n"%args)
+        return args
 
     @api.model
     def create(self, vals):
@@ -41,4 +48,5 @@ class SchoolGrades(models.Model):
     signature_id = fields.Many2one('signature',string='Signature',required=True)
     teacher_id = fields.Many2one('res.users',string='Teacher')
     notes = fields.Text('Notes')
+    student_id = fields.Many2one('student',string='Student')
 
